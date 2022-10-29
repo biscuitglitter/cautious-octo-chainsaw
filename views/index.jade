@@ -1,0 +1,18 @@
+extends layout
+block content
+  if user
+    h1 welcome back #{user.username} 
+    a(href="/log-out") Log out
+    hr
+    a(href="/members-area") go to members-only area
+
+  else
+    h1 please log in
+    form(method="POST" action="/log-in")
+      div.form-group
+        label(for="username") username:
+        input#username.form-control(type="text" name="username" required="true")
+      div.form-group
+        label(for="password") password:
+        input#password.form-control(type="password" name="password" required="true")
+      button.btn.btn-primary(type="submit") Log In

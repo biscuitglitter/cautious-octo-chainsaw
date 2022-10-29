@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1= title
+  if user
+    h3 you've already signed up.
+
+  else 
+    form(method="POST" action="")
+      div.form-group
+        label(for="firstName") first name:
+        input#firstName.form-control(type="text" name="firstName" required="true")
+      div.form-group
+        label(for="lastName") last name:
+        input#lastName.form-control(type="text" name="lastName" required="true")
+      div.form-group
+        label(for="username") username:
+        input#username.form-control(type="text" name="username" required="true")
+      div.form-group
+        label(for="password") password:
+        input#password.form-control(type="password" name="password" required="true")
+      button.btn.btn-primary(type="submit") Sign Up

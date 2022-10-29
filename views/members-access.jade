@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  div.form-container
+    if (!user.membershipStatus)  
+      form(action="" method="POST")
+        div.form-input-container
+          h3 please enter your code to activate your membership
+          h4 your access code is #{user.accessCode}
+          input#accessCode(type="accessCode" name="accessCode" required="true" placeholder="Enter my code")
+        button.btn.btn-primary(type="submit") enter my code
+
+      if (errors)
+        p #{errors}
+
+    else
+      div(style="width: auto; margin: 0 auto; text-align: center")
+        h3 congrats! you membership is now active
+        a(href="/")
+
+  a(href="/log-out") log out
+  hr
+  a(href="/") go home
